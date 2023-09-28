@@ -9,7 +9,10 @@ set.seed(101)
 # number of items of each list
 n <- 100
 
-#simulate list of patient ID's
+#simulate list of patient ID's 40 or so
+#make a list of 40 id's sample those 100 times
+
+
 
 #simulate list of Condition ID's
 
