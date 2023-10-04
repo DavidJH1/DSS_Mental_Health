@@ -8,18 +8,33 @@ ui <- dashboardPage(
     title = "DSS Mental Health Dashboard"
   ),
   dashboardSidebar(
+    sidebarMenu(
+      id = "tabs",
     menuItem("Dashboard", tabName = "Dashboard"),
-    menuItem("Paitent Look up")
+    menuItem("Patients", tabName = "Patients")
+    )
   ),
   dashboardBody(
     tabItems(
       tabItem("Dashboard", 
         fluidRow(
-          sliderInput("How_cool_is_this", "Coolness", min = 0, max = 100, value = 50, step = 1)
-        )
-
-      ) # End tab Dashboard
-      
+          column(4, 
+          numericInput(inputId = "x_value", label = "Input X", value = 5),
+          numericInput(inputId = "y_value", label = "Input Y", value = 5)
+          ),
+          column(8,
+                 plotOutput(outputId = "main_plot"))
+         )
+       ), # End tab Dashboard
+      tabItem( "Patients",
+        fluidRow(
+          column(4,
+               selectInput(inputId = "column1", choices = c("a","b","c"), label = "Alphabet")
+        ),
+          column(8,
+               selectInput(inputId = "column2", choices = c("x","y","z"), label = "Polynomial")
+        ))
+      ) # end tab Patients
     ) #end tabItems
     
   ) #end Dashboard body
