@@ -11,7 +11,10 @@ ui <- dashboardPage(
     sidebarMenu(
       id = "tabs",
     menuItem("Dashboard", tabName = "Dashboard"),
-    menuItem("Patients", tabName = "Patients")
+    menuItem("Patients", tabName = "Patients"),
+    menuItem("Medication", tabName = "Medication"),
+    menuItem("Condition", tabName = "Condition")
+    
     )
   ),
   dashboardBody(
@@ -29,10 +32,17 @@ ui <- dashboardPage(
       tabItem( "Patients",
         fluidRow(
           column(4,
-               selectInput(inputId = "column1", choices = c("a","b","c"), label = "Alphabet")
+               selectInput(inputId = "column1", choices = c("a","b","c"), label = "Alphabet"),
+               selectInput(inputId = "column2", choices = c("x","y","z"), label = "Polynomial")
         ),
           column(8,
-               selectInput(inputId = "column2", choices = c("x","y","z"), label = "Polynomial")
+                 box(
+                   width = 8, status = "info", solidHeader = TRUE,
+                   title = "Filter Options",
+                   selectInput(inputId = "column1", choices = c("a","b","c"), label = "Alphabet"),
+                   selectInput(inputId = "column2", choices = c("x","y","z"), label = "Polynomial")
+                 )
+               
         ))
       ) # end tab Patients
     ) #end tabItems

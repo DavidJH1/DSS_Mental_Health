@@ -15,6 +15,9 @@ n <- 100
 
 
 #simulate list of Condition ID's
+conditionList <- c("ADHD", "Depression", "Anxiety", "bi-polar", "ADD", "ODC", "DID")
+c_data <- sample(conditionList, n) #doesnt work yet
+
 
 #simulate random 3rd ID
 
