@@ -59,6 +59,11 @@ server <- function(input, output, session) {
     data.frame(final_data())
   })
   
+  #what does this button do?
+  observeEvent(input$JumpToPatientsTab, {
+    updateTabsetPanel(session, "tabs", "Patients")
+  })
   
-  }
+  
+} # end server
 

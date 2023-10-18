@@ -16,7 +16,8 @@ ui <- dashboardPage(
     menuItem("Patients", tabName = "Patients"),
     menuItem("PatientsTest", tabName = "PatientsTest"),
     menuItem("Medication", tabName = "Medication"),
-    menuItem("Condition", tabName = "Condition")
+    menuItem("Condition", tabName = "Condition"),
+    menuItem("Buttons", tabName = "Buttons")
     
     )
   ),
@@ -34,19 +35,12 @@ ui <- dashboardPage(
        ), # End tab Dashboard
       tabItem( "Patients",
         fluidRow(
-          column(4,
-               selectInput(inputId = "column1", choices = c("a","b","c"), label = "Alphabet"),
-               selectInput(inputId = "column2", choices = c("x","y","z"), label = "Polynomial")
-        ),
-          column(8,
-                 box(
-                   status = "info", solidHeader = TRUE,
-                   title = "Filter Options",
-                   selectInput(inputId = "column1", choices = c("a","b","c"), label = "Alphabet"),
-                   selectInput(inputId = "column2", choices = c("x","y","z"), label = "Polynomial")
-                 )
-               
-        ))
+          column(3, box(
+            status = "info", solidHeader = TRUE, title = "Picture (If possible)", width = NULL)),
+          column(3, h1("FirstName LastName"))
+        
+          
+          )
       ), # end tab Patients
       tabItem("PatientsTest",
         fluidRow(
@@ -73,7 +67,12 @@ ui <- dashboardPage(
             )
           )
         )
-      ) # endtab Paitent Test
+      ), # endtab Paitent Test
+      tabItem("Buttons",
+        fluidRow(
+          actionButton("JumpToPatientsTab","View")
+        )
+      ) # endtab Buttons
     ) #end tabItems
     
   ) #end Dashboard body
